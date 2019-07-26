@@ -7,29 +7,29 @@ let activated = '0'
 
 bot.on('ready', () =>{
 	console.log('Menace sends their regards.');
-	bot.user.setActivity('you.', { type: ('WATCHING')})
+	bot.user.setActivity('you in harmony.', { type: ('WATCHING')})
 })
 
 bot.on('guildMemberAdd', member =>{
 
-	const channel = member.guild.channels.find(channel => channel.name === "welcome");
+	const channel = member.guild.channels.find(channel => channel.name === "the-gate");
 	if(!channel) return;
-	let role = member.guild.roles.find("name", "Chainsawed");
+	let role = member.guild.roles.find("name", "Harmony");
 	member.addRole(role.id);
-	channel.sendMessage(`Enjoy your stay, ${member}.`);
+	channel.sendMessage(`${member} has entered Harmony.`);
 })
 
 bot.on('guildMemberRemove', member =>{
 
 	const channel = member.guild.channels.find(channel => channel.name === "ᴡᴇʟᴄᴏᴍᴇ-ɴ-ʙʏᴇ");
 	if(!channel) return;
-	channel.sendMessage(`${member} got sawed.`)
+	channel.sendMessage(`${member} GOT THROWN IN A BOX FLOATIN DOWN THE RIVER!`)
 })
 bot.on('message', msg=>{
 
 	mention = msg.mentions.users.first();
 	
-	if(msg.author.id === '603346768960159765')
+	if(msg.author.id === '602209941901803532')
 	{
 		if(msg.content === '-activate')
 		{
@@ -40,11 +40,10 @@ bot.on('message', msg=>{
 			activated = '0'
 		}
 	}
-	if(msg.author.id === '603346768960159765')
+	if(msg.author.id === '602209941901803532')
 	{
 		if(activated === '1')
 		{
-			console.log('wtf')
 			let content = msg.content
 			msg.channel.bulkDelete('1')
 			msg.channel.send(content)
@@ -118,7 +117,7 @@ bot.on('message', msg=>{
 			if(!msg.guild.me.hasPermission("ADMINISTRATOR")) return msg.channel.sendMessage("I don't have the allowed permission to make an announcement!");
 			if(!args[1]) return msg.channel.sendMessage('What are you trying to announce?')
 			const aMessage = args.join(" ").slice(14);
-			const achannel = bot.channels.find(channel => channel.name === "announcement");
+			const achannel = bot.channels.find(channel => channel.name === "announcements");
 			const aAuthor = msg.author.username
 			const agif = new Attachment('https://cdn.discordapp.com/attachments/598945838646951956/599001058374844437/men_gif.gif');
 			if(!achannel) return;
